@@ -9,11 +9,13 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
       root = new BinaryNode<>(rootData);
    } // end constructor
 
-   public BinaryTree(T rootData, BinaryTree<T> leftTree, BinaryTree<T> rightTree) {
+   public BinaryTree(T rootData, BinaryTree<T> leftTree,
+                                 BinaryTree<T> rightTree) {
       initializeTree(rootData, leftTree, rightTree);
    } // end constructor
 
-   public void setTree(T rootData, BinaryTreeInterface<T> leftTree, BinaryTreeInterface<T> rightTree) {
+   public void setTree(T rootData, BinaryTreeInterface<T> leftTree,
+                                   BinaryTreeInterface<T> rightTree) {
       initializeTree(rootData, (BinaryTree<T>)leftTree, (BinaryTree<T>)rightTree);
    } // end setTree
 
@@ -28,23 +30,19 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
          return root.getData();
    } // end getRootData
    
-   public boolean isEmpty()
-   {
+   public boolean isEmpty() {
       return root == null;
    } // end isEmpty
    
-   public void clear()
-   {
+   public void clear() {
       root = null;
    } // end clear
    
-   protected void setRootNode(BinaryNode<T> rootNode)
-   {
+   protected void setRootNode(BinaryNode<T> rootNode) {
       root = rootNode;
    } // end setRootNode
    
-   protected BinaryNode<T> getRootNode()
-   {
+   protected BinaryNode<T> getRootNode() {
       return root;
    } // end getRootNode
    
@@ -88,13 +86,25 @@ public class BinaryTree<T> implements BinaryTreeInterface<T> {
    /** A Recursive Method in the BinaryTree Class   
     * prints (using post-order traversal) all nodes in the subtree rooted at this node.*/
    private void postorderTraverse(BinaryNode<T> node) {
+      //base case if the tree is empty
+      if (node == null){
+         return;
+      }
 
+      //recursively run until all left children are added to queue
+      postorderTraverse(node.getLeftChild());
+
+      //recursively run until all right children are added to queue
+      postorderTraverse(node.getRightChild());
+
+      //will print out data in postorder
+      System.out.print(node.getData() + " ");
    }
  
    /** The following calls postorderTraverse_binaryNodeMethod(), which is a recursive binaryNode class method   
     * prints (using post-order traversal) all nodes in the "whole" tree */
-   public void postorderTraverse_callBinaryNodeMethod()
-   {
+   public void postorderTraverse_callBinaryNodeMethod() {
+      root.postorderTraverse_binaryNodeMethod();
    }
    
    /** -------------------------------------------------------------------- */

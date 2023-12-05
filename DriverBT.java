@@ -7,7 +7,8 @@ public class DriverBT
 		
 		System.out.println("(binaryTree) post-order: ");
 		aTree.postorderTraverse();
-		
+		System.out.println();
+
 		System.out.println("(binaryNode) post-order: ");
 		aTree.postorderTraverse_callBinaryNodeMethod();
 		
@@ -30,6 +31,8 @@ public class DriverBT
 		
 		System.out.println("(binaryTree) post-order: ");
 		aTree2.postorderTraverse();
+
+		System.out.println();
 		
 		System.out.println("(binaryNode) post-order: ");
 		aTree2.postorderTraverse_callBinaryNodeMethod();
@@ -82,19 +85,19 @@ public class DriverBT
 
 		//Subtrees
 		BinaryTree<String> dTree = new BinaryTree<>("D", fTree, null);
-		BinaryTree<String> eTree = new BinaryTree<>("B", gTree, hTree);
+		BinaryTree<String> eTree = new BinaryTree<>("E", gTree, hTree);
 		BinaryTree<String> cTree = new BinaryTree<>("C", dTree, eTree);
 
 		tree.setTree("A", bTree, cTree);
 
 		System.out.println("\nGiven Tree:\n");
-		System.out.println("     A       ");
-		System.out.println("   /   \\    ");
-		System.out.println("  B     C    ");
-		System.out.println("      /  \\  ");
-		System.out.println("    D    E   ");
-		System.out.println("   /    / \\ ");
-		System.out.println("  F    G   H ");
+		System.out.println("    A       ");
+		System.out.println("  /   \\    ");
+		System.out.println(" B     C    ");
+		System.out.println("     /  \\  ");
+		System.out.println("   D     E  ");
+		System.out.println("  /     / \\");
+		System.out.println(" F     G   H");
 		System.out.println();
 	} // end createTree2
 
